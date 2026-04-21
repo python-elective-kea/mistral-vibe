@@ -1,10 +1,12 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
 import logging
+from datetime import UTC, datetime
 from logging.handlers import RotatingFileHandler
 import os
 import re
+import sys
+from typing import List
 
 from vibe.core.paths import LOG_DIR, LOG_FILE
 
@@ -67,3 +69,7 @@ def apply_logging_config(target_logger: logging.Logger) -> None:
 
 
 apply_logging_config(logger)
+
+
+def get_log_levels() -> List[str]:
+    return ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
